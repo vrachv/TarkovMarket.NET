@@ -1,4 +1,6 @@
 # TarkovMarket.NET
+[![NuGet](https://img.shields.io/nuget/vpre/TarkovMarket.Net.svg?maxAge=2592000?style=plastic)](https://www.nuget.org/packages/TarkovMarket.Net)
+
 C# wrapper for Escape from Tarkov API provided by https://tarkov-market.com
 
 ## Note

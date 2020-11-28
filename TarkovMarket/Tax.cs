@@ -38,7 +38,7 @@ namespace TarkovMarket
         /// <param name="price">Item price.</param>
         public static double WithIntCenter(double basePrice, double price)
         {
-            return Base(basePrice, price) * (1 + (double)-30 / 100);
+            return Math.Round(Base(basePrice, price) * (1 + (double)-30 / 100));
         }
 
         /// <summary>

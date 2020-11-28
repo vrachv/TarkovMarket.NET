@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using TarkovMarket.Models;
 
 namespace TarkovMarket
 {
-    public class TarkovMarketClient
+    public class TarkovMarketClient : IDisposable
     {
         private readonly Request _httpRequest;
 
@@ -75,6 +76,12 @@ namespace TarkovMarket
             var request = $"items/all?lang={langValue}";
 
             return await _httpRequest.RequestAsync(request).ConfigureAwait(false);
+        }
+
+        public void Dispose()
+        {
+            _httpRequest?.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }

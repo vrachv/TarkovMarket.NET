@@ -9,7 +9,7 @@ using TarkovMarket.Models;
 
 namespace TarkovMarket.Http
 {
-    internal class Request
+    internal class Request : IDisposable
     {
         private readonly HttpClient _client;
 
@@ -39,6 +39,12 @@ namespace TarkovMarket.Http
             {
                 throw new Exception($"Failed to deserialize data: {ex.Message}", ex);
             }
+        }
+
+        public void Dispose()
+        {
+            _client?.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }
