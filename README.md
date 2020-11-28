@@ -15,14 +15,14 @@ You can get your API key from here: https://www.patreon.com/tarkov_market
 Basic example, getting the price of the specified Item in German language.
 ```csharp
 var client = new TarkovMarketClient("api-key-here");
-var item = client.GetItemByNameAsync("ledx", Lang.German).Result;
+var item = await client.GetItemByNameAsync("ledx", Lang.German).ConfigureAwait(false);
 Console.WriteLine($"{item[0].Name} Price: {item[0].Price}");
 ```
 
 Basic example, getting all Items in default language(English)
 ```csharp
 var client = new TarkovMarketClient("api-key-here");
-var items = client.GetAllItemsAsync("ledx").Result;
+var items = await client.GetAllItemsAsync("ledx").ConfigureAwait(false);
 var str = JsonConvert.SerializeObject(items);
 File.WriteAllText("items.json", str);
 ```
@@ -30,7 +30,7 @@ File.WriteAllText("items.json", str);
 Basic example, getting the tax of the specified Item.
 ```csharp
 var client = new TarkovMarketClient("api-key-here");
-var item = client.GetItemByNameAsync("ledx", Lang.German).Result;
+var item = await client.GetItemByNameAsync("ledx", Lang.German).ConfigureAwait(false);
 var tax = Tax.Base(item[0]);
 var taxWithIntCenter = Tax.WithIntCenter(item[0]);
 ```
