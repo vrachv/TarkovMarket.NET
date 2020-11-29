@@ -33,6 +33,6 @@ Basic example, getting the tax of the specified Item.
 ```csharp
 var client = new TarkovMarketClient("api-key-here");
 var item = await client.GetItemByNameAsync("ledx", Lang.German).ConfigureAwait(false);
-var tax = Tax.Base(item[0]);
-var taxWithIntCenter = Tax.WithIntCenter(item[0]);
+var tax = Tax.Base(basePrice: 10000, price: 100000); // custom prices
+Console.WriteLine($"Tax: {item[0].Tax}\nTax With Int Center: {item[0].TaxWithIntCenter}"); // target item
 ```
