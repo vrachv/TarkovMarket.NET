@@ -14,7 +14,7 @@ namespace TarkovMarket
         private readonly Request _httpRequest;
 
         /// <summary>
-        /// Initialises a <see cref="TarkovMarketClient">.
+        /// Initialises a <see cref="TarkovMarketClient"/>.
         /// </summary>
         /// <param name="apiKey">Your tarkov-market Api key (https://www.patreon.com/tarkov_market)</param>
         public TarkovMarketClient(string apiKey)
@@ -28,7 +28,7 @@ namespace TarkovMarket
         }
 
         /// <summary>
-        /// Initialises a <see cref="TarkovMarketClient">.
+        /// Initialises a <see cref="TarkovMarketClient"/>.
         /// </summary>
         /// <param name="itemName">Item name you search.</param>
         /// <param name="lang">Response language <see cref="Lang"/>.</param>
@@ -47,7 +47,7 @@ namespace TarkovMarket
         }
 
         /// <summary>
-        /// Initialises a <see cref="TarkovMarketClient">.
+        /// Initialises a <see cref="TarkovMarketClient"/>.
         /// </summary>
         /// <param name="uid">Item uid you search.</param>
         /// <param name="lang">Response language <see cref="Lang"/>.</param>

@@ -70,6 +70,12 @@ namespace TarkovMarket.Models
         
         [JsonProperty("reference")]
         public string TarkovMarketPatreon { get; set; }
+
+        public int PricePerSlot => Price / Slots;
+
+        public double Tax => TarkovMarket.Tax.Base(BasePrice, Price);
+
+        public double TaxWithIntCenter => TarkovMarket.Tax.WithIntCenter(BasePrice, Price);
     }
 
     internal static class Converter

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TarkovMarket.Models;
 
 namespace TarkovMarket
@@ -26,15 +27,10 @@ namespace TarkovMarket
         /// <summary>
         /// Gets tax for Items.
         /// </summary>
-        /// <param name="items"><see cref="List<Item>"/></param>
+        /// <param name="items">List of items.</param>
         public static double Base(List<Item> items)
         {
-            double result = 0;
-            foreach (var item in items)
-            {
-                result += Base(item.BasePrice, item.Price);
-            }
-            return result;
+            return items.Sum(item => Base(item.BasePrice, item.Price));
         }
 
         /// <summary>
@@ -59,15 +55,10 @@ namespace TarkovMarket
         /// <summary>
         /// Gets tax for Items with Int Center.
         /// </summary>
-        /// <param name="items"><see cref="List<Item>"/></param>
+        /// <param name="items">List of items.</param>
         public static double WithIntCenter(List<Item> items)
         {
-            double result = 0;
-            foreach (var item in items)
-            {
-                result += WithIntCenter(item.BasePrice, item.Price);
-            }
-            return result;
+            return items.Sum(item => WithIntCenter(item.BasePrice, item.Price));
         }
 
         /// <summary>
