@@ -33,13 +33,11 @@ namespace TarkovMarket
             return items.Sum(item => Base(item.BasePrice, item.Price));
         }
 
-        /// <summary>
-        /// Gets tax for Item.
-        /// </summary>
-        /// <param name="item"><see cref="Item"/></param>
+        /// <summary>Obsolete.</summary>
+        [Obsolete("This overload is deprecated, please use Item.Tax instead.")]
         public static double Base(Item item)
         {
-            return Base(item.BasePrice, item.Price);
+            return item.Tax;
         }
 
         /// <summary>
@@ -61,13 +59,11 @@ namespace TarkovMarket
             return items.Sum(item => WithIntCenter(item.BasePrice, item.Price));
         }
 
-        /// <summary>
-        /// Gets tax for Item with Int Center.
-        /// </summary>
-        /// <param name="item"><see cref="Item"/></param>
+        /// <summary>Obsolete.</summary>
+        [Obsolete("This overload is deprecated, please use Item.TaxWithIntCenter instead.")]
         public static double WithIntCenter(Item item)
         {
-            return WithIntCenter(item.BasePrice, item.Price);
+            return item.TaxWithIntCenter;
         }
     }
 }
