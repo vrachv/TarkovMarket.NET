@@ -36,3 +36,15 @@ var item = await client.GetItemByNameAsync("ledx", Lang.German).ConfigureAwait(f
 var tax = Tax.Base(basePrice: 10000, price: 100000); // custom prices
 Console.WriteLine($"Tax: {item[0].Tax}\nTax With Int Center: {item[0].TaxWithIntCenter}"); // target item
 ```
+
+Basic example, getting the items info from Raw BSG API
+```csharp
+var client = new TarkovMarketClient("api-key-here");
+var items = await client.GetBsgRawAsync().ConfigureAwait(false); // English only
+
+foreach (var item in items)
+{
+    Console.WriteLine(item.Value.Props.Name);
+    Console.WriteLine(item.Value.Props.Prefab?.Path); // Recommended to handle NullReferenceException or use Null-conditional operator
+}
+```

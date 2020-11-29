@@ -30,7 +30,7 @@ namespace TarkovMarket
         /// <param name="items">List of items.</param>
         public static double Base(List<Item> items)
         {
-            return items.Sum(item => Base(item.BasePrice, item.Price));
+            return items.Sum(item => item.Tax);
         }
 
         /// <summary>Obsolete.</summary>
@@ -56,7 +56,7 @@ namespace TarkovMarket
         /// <param name="items">List of items.</param>
         public static double WithIntCenter(List<Item> items)
         {
-            return items.Sum(item => WithIntCenter(item.BasePrice, item.Price));
+            return items.Sum(item => item.TaxWithIntCenter);
         }
 
         /// <summary>Obsolete.</summary>
