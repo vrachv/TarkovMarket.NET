@@ -6,6 +6,9 @@ C# wrapper for Escape from Tarkov API provided by https://tarkov-market.com
 ## Note
 The API is maintained and provided by tarkov-market.com and all credits go to them. This project just wraps the API for easy usage in C#.
 
+## Contribute
+Feel free to contribute.
+
 ## Installation
 To add TarkovMarket.NET to your project, run the following command in the NuGet Package Manager Console:
 >Install-Package TarkovMarket.NET
