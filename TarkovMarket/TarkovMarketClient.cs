@@ -32,7 +32,7 @@ namespace TarkovMarket
         /// </summary>
         /// <param name="itemName">Item name you search.</param>
         /// <param name="lang">Response language <see cref="Lang"/>.</param>
-        public async Task<List<Item>> GetItemByNameAsync(string itemName, Lang lang = Lang.English)
+        public async Task<Items> GetItemByNameAsync(string itemName, Lang lang = Lang.English)
         {
             if (string.IsNullOrEmpty(itemName))
             {
@@ -51,7 +51,7 @@ namespace TarkovMarket
         /// </summary>
         /// <param name="uid">Item uid you search.</param>
         /// <param name="lang">Response language <see cref="Lang"/>.</param>
-        public async Task<List<Item>> GetItemByUidAsync(string uid, Lang lang = Lang.English)
+        public async Task<Items> GetItemByUidAsync(string uid, Lang lang = Lang.English)
         {
             if (string.IsNullOrEmpty(uid))
             {
@@ -69,7 +69,7 @@ namespace TarkovMarket
         /// Initialises a <see cref="TarkovMarketClient">.
         /// </summary>
         /// <param name="lang">Response language <see cref="Lang"/>.</param>
-        public async Task<List<Item>> GetAllItemsAsync(Lang lang = Lang.English)
+        public async Task<Items> GetAllItemsAsync(Lang lang = Lang.English)
         {
             var langValue = typeof(Lang).GetMember(lang.ToString())[0].GetCustomAttributes(false)
                     .OfType<EnumMemberAttribute>().FirstOrDefault()?.Value;

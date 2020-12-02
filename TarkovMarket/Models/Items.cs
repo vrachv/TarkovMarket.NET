@@ -4,6 +4,18 @@ using Newtonsoft.Json;
 
 namespace TarkovMarket.Models
 {
+    public class Items
+    {
+        public List<Item> ItemsAsList { get; }
+        public string ItemsAsString { get; }
+
+        public Items(string str)
+        {
+            ItemsAsList = JsonConvert.DeserializeObject<List<Item>>(str, Converter.Settings);
+            ItemsAsString = str;
+        }
+    }
+
     public class Item
     {
         [JsonProperty("uid")]

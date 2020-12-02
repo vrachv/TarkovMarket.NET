@@ -20,7 +20,7 @@ namespace TarkovMarket.Http
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<List<Item>> RequestAsync(string request)
+        public async Task<Items> RequestAsync(string request)
         {
             try
             {
@@ -31,9 +31,8 @@ namespace TarkovMarket.Http
                 }
 
                 var responseData = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                var result = JsonConvert.DeserializeObject<List<Item>>(responseData, Converter.Settings);
 
-                return result;
+                return new Items(responseData);
             }
             catch (JsonException ex)
             {
