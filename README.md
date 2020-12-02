@@ -20,24 +20,29 @@ You can get your API key from here: https://www.patreon.com/tarkov_market
 Basic example, getting the price of the specified Item in German language.
 ```csharp
 var client = new TarkovMarketClient("api-key-here");
-var item = await client.GetItemByNameAsync("ledx", Lang.German).ConfigureAwait(false);
-Console.WriteLine($"{item[0].Name} Price: {item[0].Price}");
+var response = await client.GetItemByNameAsync("ledx", Lang.German).ConfigureAwait(false);
+var listItems = response.ItemsAsList;
+Console.WriteLine($"{listItems[0].Name} Price: {listItems[0].Price}");
 ```
 
 Basic example, getting all Items in default language(English)
 ```csharp
 var client = new TarkovMarketClient("api-key-here");
-var items = await client.GetAllItemsAsync("ledx").ConfigureAwait(false);
-var str = JsonConvert.SerializeObject(items);
-File.WriteAllText("items.json", str);
+var response = await client.GetAllItemsAsync("ledx").ConfigureAwait(false);
+File.WriteAllText("items.json", response.ItemsAsString);
 ```
 
 Basic example, getting the tax of the specified Item.
 ```csharp
 var client = new TarkovMarketClient("api-key-here");
-var item = await client.GetItemByNameAsync("ledx", Lang.German).ConfigureAwait(false);
-var tax = Tax.Base(basePrice: 10000, price: 100000); // custom prices
-Console.WriteLine($"Tax: {item[0].Tax}\nTax With Int Center: {item[0].TaxWithIntCenter}"); // target item
+var response = await client.GetItemByNameAsync("ledx", Lang.German).ConfigureAwait(false);
+var listItems = response.ItemsAsList;
+
+// custom prices
+var tax = Tax.Base(basePrice: 10000, price: 100000);
+
+// target item
+Console.WriteLine($"Tax: {listItems[0].Tax}\nTax With Int Center: {listItems[0].TaxWithIntCenter}");
 ```
 
 Basic example, getting the items info from Raw BSG API
