@@ -33,13 +33,6 @@ namespace TarkovMarket
             return items.Sum(item => item.Tax);
         }
 
-        /// <summary>Obsolete.</summary>
-        [Obsolete("This overload is deprecated, please use Item.Tax instead.")]
-        public static double Base(Item item)
-        {
-            return item.Tax;
-        }
-
         /// <summary>
         /// Gets tax for Item with Int Center.
         /// </summary>
@@ -57,13 +50,6 @@ namespace TarkovMarket
         public static double WithIntCenter(List<Item> items)
         {
             return items.Sum(item => item.TaxWithIntCenter);
-        }
-
-        /// <summary>Obsolete.</summary>
-        [Obsolete("This overload is deprecated, please use Item.TaxWithIntCenter instead.")]
-        public static double WithIntCenter(Item item)
-        {
-            return item.TaxWithIntCenter;
         }
     }
 }

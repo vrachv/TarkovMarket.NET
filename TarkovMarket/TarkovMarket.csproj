@@ -8,7 +8,7 @@
         <PackageId>TarkovMarket.NET</PackageId>
         <Product>TarkovMarket.NET</Product>
         <PackageTags>tarkov, eft, escapefromtarkov, api</PackageTags>
-        <Version>1.2.0</Version>
+        <Version>1.2.1</Version>
         <Description>C# wrapper for tarkov-market.com API</Description>
         <RepositoryUrl>https://github.com/vrachv/TarkovMarket.Net</RepositoryUrl>
     </PropertyGroup>
