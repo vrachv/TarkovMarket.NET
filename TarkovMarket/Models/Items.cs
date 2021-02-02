@@ -55,10 +55,10 @@ namespace TarkovMarket.Models
         public int Slots { get; set; }
         
         [JsonProperty("diff24h")]
-        public double DiffDayPrice { get; set; }
+        public double? DiffDayPrice { get; set; }
         
         [JsonProperty("diff7days")]
-        public double DiffWeekPrice { get; set; }
+        public double? DiffWeekPrice { get; set; }
         
         [JsonProperty("icon")]
         public string IconUrl { get; set; }
