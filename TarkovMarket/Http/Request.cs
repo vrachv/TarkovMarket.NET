@@ -40,27 +40,6 @@ namespace TarkovMarket.Http
             }
         }
 
-        public async Task<Dictionary<string, BsgRaw>> RequestBsgRawAsync(string request)
-        {
-            try
-            {
-                var response = _client.GetAsync(request).Result;
-                if (!response.IsSuccessStatusCode)
-                {
-                    throw new TarkovMarketException($"Data not retrieve, status code: {response.StatusCode}.");
-                }
-
-                var responseData = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                var result = JsonConvert.DeserializeObject<Dictionary<string, BsgRaw>>(responseData, Converter.Settings);
-
-                return result;
-            }
-            catch (JsonException ex)
-            {
-                throw new Exception($"Failed to deserialize data: {ex.Message}", ex);
-            }
-        }
-
         public void Dispose()
         {
             _client?.Dispose();
