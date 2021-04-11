@@ -25,13 +25,6 @@ var listItems = response.ItemsAsList;
 Console.WriteLine($"{listItems[0].Name} Price: {listItems[0].Price}");
 ```
 
-Basic example, getting all Items in default language(English)
-```csharp
-var client = new TarkovMarketClient("api-key-here");
-var response = await client.GetAllItemsAsync("ledx").ConfigureAwait(false);
-File.WriteAllText("items.json", response.ItemsAsString);
-```
-
 Basic example, getting the tax of the specified Item.
 ```csharp
 var client = new TarkovMarketClient("api-key-here");
@@ -43,16 +36,4 @@ var tax = Tax.Base(basePrice: 10000, price: 100000);
 
 // target item
 Console.WriteLine($"Tax: {listItems[0].Tax}\nTax With Int Center: {listItems[0].TaxWithIntCenter}");
-```
-
-Basic example, getting the items info from Raw BSG API
-```csharp
-var client = new TarkovMarketClient("api-key-here");
-var items = await client.GetBsgRawAsync().ConfigureAwait(false); // English only
-
-foreach (var item in items)
-{
-    Console.WriteLine(item.Value.Props.Name);
-    Console.WriteLine(item.Value.Props.Prefab?.Path); // Recommended to handle NullReferenceException or use Null-conditional operator
-}
 ```
