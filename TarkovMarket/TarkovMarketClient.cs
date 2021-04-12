@@ -65,6 +65,27 @@ namespace TarkovMarket
             return await _httpRequest.RequestAsync(request).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Initialises a <see cref="TarkovMarketClient">.
+        /// </summary>
+        /// <param name="lang">Response language <see cref="Lang"/>.</param>
+        public async Task<Items> GetAllItemsAsync(Lang lang = Lang.English)
+        {
+            var langValue = typeof(Lang).GetMember(lang.ToString())[0].GetCustomAttributes(false)
+                    .OfType<EnumMemberAttribute>().FirstOrDefault()?.Value;
+            var request = $"items/all?lang={langValue}";
+
+            return await _httpRequest.RequestAsync(request).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Initialises a <see cref="TarkovMarketClient">.
+        /// </summary>
+        public async Task<Dictionary<string, BsgRaw>> GetBsgRawAsync()
+        {
+            return await _httpRequest.RequestBsgRawAsync("bsg/items/all").ConfigureAwait(false);
+        }
+
         public void Dispose()
         {
             _httpRequest?.Dispose();
