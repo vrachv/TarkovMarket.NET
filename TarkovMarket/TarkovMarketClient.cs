@@ -69,7 +69,6 @@ namespace TarkovMarket
         /// Initialises a <see cref="TarkovMarketClient">.
         /// </summary>
         /// <param name="lang">Response language <see cref="Lang"/>.</param>
-        [Obsolete("This endpoint will cease to be available from 05/01/2021")]
         public async Task<Items> GetAllItemsAsync(Lang lang = Lang.English)
         {
             var langValue = typeof(Lang).GetMember(lang.ToString())[0].GetCustomAttributes(false)
@@ -82,7 +81,6 @@ namespace TarkovMarket
         /// <summary>
         /// Initialises a <see cref="TarkovMarketClient">.
         /// </summary>
-        [Obsolete("This endpoint will cease to be available from 05/01/2021")]
         public async Task<Dictionary<string, BsgRaw>> GetBsgRawAsync()
         {
             return await _httpRequest.RequestBsgRawAsync("bsg/items/all").ConfigureAwait(false);

@@ -40,7 +40,6 @@ namespace TarkovMarket.Http
             }
         }
 
-        [Obsolete("This will cease to be available from 05/01/2021")]
         public async Task<Dictionary<string, BsgRaw>> RequestBsgRawAsync(string request)
         {
             try
